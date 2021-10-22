@@ -55,3 +55,33 @@ let allbooks = friends.reduce(
 //   'Romeo and Juliet', 'The Lord of the Rings',
 //   'The Shining'
 // ]
+
+const mapTransducer = (mapper) => (reducingFunction) => {
+  return (result, input) => reducingFunction(result, mapper(input));
+};
+
+const filterTransducer = (predicate) => (reducingFunction) => {
+  return (result, input) =>
+    predicate(input) ? reducingFunction(result, input) : result;
+};
+
+const concatReducer = (result, input) => result.concat(input);
+
+const lowerThan6 = filterTransducer((value) => {
+  console.log(`#lowerThan6 called with: ${value}`);
+
+  return value < 6;
+});
+
+const double = mapTransducer((value) => {
+  console.log(`#double called with: ${value}`);
+
+  return value * 2;
+});
+
+const numbers = [1, 2, 3];
+const xform = R.compose(double, lowerThan6);
+
+const output = numbers.reduce(xform(concatReducer), []);
+
+console.log(output);
