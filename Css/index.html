@@ -1,0 +1,55 @@
+Stack Elements
+
+<div class="parent">
+  <h2>parent</h2>
+  <div class="child">
+    <h2>child</h2>
+    <code>position: absolute;</code><br />
+    <code>top: 0;</code><br />
+    <code>left: 0;</code><br />
+  </div>
+</div>
+
+<style lang="scss">
+  body {
+    font-family: 'Roboto Slab', serif;
+    background: $color1;
+    color: $color5;
+  }
+
+  div {
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  h2 {
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0 10px;
+    margin-bottom: 5px;
+  }
+
+  code {
+    padding: 5px 0px;
+  }
+
+  .parent {
+    background: $color2;
+    width: 80vw;
+    margin: 8vw 10vw;
+    height: 200px;
+    border: 5px dotted $color4;
+  }
+
+  .child {
+    opacity: 0.8;
+    height: 150px;
+    background: $color3;
+    border: 3px dotted $color4;
+    width: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+</style>
